@@ -6,8 +6,8 @@ import classes from './Counter.module.css';
 
 const Counter = () => {
   //assegnamo lo state al counter che aggiornerà ogni volta che lo state dello store cambia 
-  const counter = useSelector(state => state.counter)
-  const show = useSelector(state => state.showCounter)
+  const counter = useSelector(state => state.counter.counter)
+  const show = useSelector(state => state.counter.showCounter)
   //assegnamo alla variabile dispatch l'hook
   const dispatch = useDispatch();
   
