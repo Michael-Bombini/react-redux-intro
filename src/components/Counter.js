@@ -1,7 +1,7 @@
 //importiamo useSelector hook di redux per collegarci con lo store
 //importiamo useDispatch per attivare le azioni che andranno a modificare il nostro state dello store
 import { useDispatch, useSelector } from 'react-redux';
-
+import { counterActions } from '../store/index';
 import classes from './Counter.module.css';
 
 const Counter = () => {
@@ -14,19 +14,19 @@ const Counter = () => {
 
   //il nome dell'azione che vogliamo attivare
   function incrementHandler(){
-    dispatch({type: 'increment'})
+    dispatch(counterActions.increment());
   }
   function decrementHandler(){
-    dispatch({type: 'decrement'})
+    dispatch(counterActions.decrement());
   }
 
   //passiamo come payload nell'action amount per il dispatch
   function increaseHandler(){
-    dispatch({type: 'increase' , amount: 5})
+    dispatch(counterActions.increase(5))
   }
 
   function showCounterHandler(){
-    dispatch({type: 'show'})
+    dispatch(counterActions.toggleCounter())
   }
 
   return (

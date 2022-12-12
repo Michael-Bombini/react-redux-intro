@@ -1,6 +1,7 @@
 import { configureStore, createSlice } from "@reduxjs/toolkit";
-import { createStore } from "redux";
+// import { createStore } from "redux";
 
+//questi dati saranno estratti dal selector
 const initialState = {
   counter: 0,
   showCounter: true,
@@ -15,10 +16,10 @@ const counterSlice = createSlice({
       state.counter++;
     },
     decrement(state) {
-      state.counter;
+      state.counter--;
     },
     increase(state, action) {
-      state.counter += action.amount;
+      state.counter += action.payload;
     },
     toggleCounter(state) {
       state.showCounter = !state.showCounter;
@@ -66,4 +67,5 @@ const store = configureStore({
   reducer: counterSlice.reducer,
 });
 
+export const counterActions = counterSlice.actions;
 export default store;
